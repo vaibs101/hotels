@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
+require('dotenv').config();
 
-const dbURI = 'mongodb://127.0.0.1:27017/hotels';
+//const dbURI = 'mongodb://127.0.0.1:27017/hotels';
+const mongoURL=process.env.MONGODB_URL;
 
-mongoose.connect(dbURI,{
+mongoose.connect(mongoURL,{
     serverSelectionTimeoutMS: 30000
 })
   .then(() => console.log('MongoDB connected'))
